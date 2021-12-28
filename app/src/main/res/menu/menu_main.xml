@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="fr.istic.mmm_tp3_android_firebase.MainActivity">
+
+    <item
+            android:id="@+id/menuItem_icon_open"
+            android:icon="@drawable/icon_open"
+            android:title="Open"
+            app:showAsAction="collapseActionView" />
+    <item
+            android:id="@+id/menuItem_share"
+            android:icon="@drawable/icon_share"
+            android:title="Share"
+            app:showAsAction="ifRoom">
+        <menu>
+            <item
+                    android:id="@+id/menuItem_facebook"
+                    android:title="Facebook" />
+            <item
+                    android:id="@+id/menuItem_instagram"
+                    android:title="Instagram" />
+        </menu>
+    </item>
+    <item
+            android:id="@+id/menuItem_delete"
+            android:icon="@drawable/icon_delete"
+            android:title="Delete" />
+
+    <item
+            android:id="@+id/app_bar_search"
+            android:icon="@drawable/icon_search"
+            android:title="Search"
+            app:actionViewClass="android.widget.SearchView"
+            app:showAsAction="always" />
+
+    <item
+            android:id="@+id/menuItem_settings"
+            android:icon="@drawable/icon_settings"
+            android:title="Settings"
+            app:showAsAction="always" />
+</menu>

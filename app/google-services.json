@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "767728839625",
+    "project_id": "mmm-tp3-android-firebase",
+    "storage_bucket": "mmm-tp3-android-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767728839625:android:1e3f598c649c07e1b6d618",
+        "android_client_info": {
+          "package_name": "fr.istic.mmm_tp3_android_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767728839625-q4h8uj5bvtd7lp548p061ibct0f6adcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb8coWGxmbAjIog1Qxep4ki-ujWFuPja4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767728839625-q4h8uj5bvtd7lp548p061ibct0f6adcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
