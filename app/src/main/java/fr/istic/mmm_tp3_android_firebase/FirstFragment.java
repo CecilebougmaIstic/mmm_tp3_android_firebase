@@ -166,11 +166,12 @@ public class FirstFragment extends Fragment {
 
                 String  recupFirstName = binding.firstnameArray.getText().toString ();
                 Log.i("Tag", "test firstnameArray" + recupFirstName);
+
                 String birthdayPlaceArray = binding.birthdayPlaceArray.getText().toString ();
-                Log.i("Tag", "test firstnameArray" + birthdayPlaceArray);
+                Log.i("Tag", "test birthdayPlaceArray" + birthdayPlaceArray);
 
                 String recupBirthday = binding.birthdaytext.getText().toString ();
-                Log.i("Tag", "test recupBirthday" + birthdayPlaceArray);
+                Log.i("Tag", "test recupBirthday" + recupBirthday);
 
 
                 // calling method to add data to Firebase Firestore.

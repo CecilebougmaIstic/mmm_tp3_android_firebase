@@ -94,7 +94,7 @@ public class UserRepository {
 
         //User users = new User(user.getFirstName(), user.getLastName(),user.getBirthday(),user.getBirthday());
         // below method is use to add data to Firebase Firestore.
-        Log.i("Tag", "les informations du User à enregistrer:" + user.getFirstName());
+        Log.i("Tag", "les informations du User à enregistrer Dans la Base de données Firestore:" + user);
         dbUsers.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
