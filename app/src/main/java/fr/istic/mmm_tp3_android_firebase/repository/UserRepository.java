@@ -18,14 +18,34 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firestore.v1.WriteResult;
 
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import fr.istic.mmm_tp3_android_firebase.User;
 
 public class UserRepository {
     public static final String COLLECTION_NAME = "users";
+    private static volatile  UserRepository instance;
+
+    public UserRepository() { }
+    public static UserRepository getInstance(){
+        UserRepository result = instance;
+        if(result!=null){
+            return  result;
+        }
+        synchronized (UserRepository.class){
+            if(instance==null){
+                instance = new UserRepository();
+            }
+            return instance;
+        }
+
+    }
+
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // Get the Collection Reference
@@ -35,7 +55,7 @@ public class UserRepository {
 
 /*
     // Create User in Firestore
-    public void createUser() {
+    public void createUser1() {
         FirebaseUser user = getCurrentUser();
         if(user != null){
             String urlPicture = (user.getPhotoUrl() != null) ? user.getPhotoUrl().toString() : null;
@@ -71,9 +91,11 @@ public class UserRepository {
         // for our Firebase Firetore database
         CollectionReference dbUsers = db.collection("users");
         // adding our data to our users object class.
-        User users = new User(user.getFirstName(), user.getLastName(),user.getBirthday(),user.getBirthday());
+
+        //User users = new User(user.getFirstName(), user.getLastName(),user.getBirthday(),user.getBirthday());
         // below method is use to add data to Firebase Firestore.
-        dbUsers.add(users).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        Log.i("Tag", "les informations du User à enregistrer:" + user.getFirstName());
+        dbUsers.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 // after the data addition is successful
@@ -101,7 +123,7 @@ public class UserRepository {
             return null;
         }
     }
-
+/*
 
     // Update des Users
     public String updateUser(User user) {
@@ -111,7 +133,15 @@ public class UserRepository {
         }else{
             return "Veuillez Saisir le nom de Famille de l'utilisateur à modifier";
         }
+    }*/
+public  Task<Void>  updateUser(User user) {
+    // String uid = this.getCurrentUserUID();
+    if(user.getFirstName() != null){
+        return this.getUsersCollection().document(user.getFirstName()).set(user);
+    }else{
+        return null;
     }
+}
 
 
     // Delete des Users
@@ -144,4 +174,18 @@ public class UserRepository {
           }
 
     }
+    public Task<Void> deleteUser1(User user) {
+        String uid = this.getUserIdinFirestore(user.getFirstName());
+        System.out.println(user.getFirstName());
+          if(uid != null){
+             return this.getUsersCollection().document(uid).delete();
+        }else {
+              return null;
+          }
+
+    }
+
+
+
+
 }

@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import fr.istic.mmm_tp3_android_firebase.databinding.FragmentFirstBinding;
+import fr.istic.mmm_tp3_android_firebase.manager.UserManager;
+import fr.istic.mmm_tp3_android_firebase.repository.UserRepository;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,6 +35,8 @@ public class FirstFragment extends Fragment {
     // creating a variable
     // for firebasefirestore.
     private FirebaseFirestore db;
+    //Creating a variable for UserManager
+    UserManager userManager= UserManager.getInstance();
     /********************/
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "firstName";
@@ -162,12 +166,17 @@ public class FirstFragment extends Fragment {
 
                 String  recupFirstName = binding.firstnameArray.getText().toString ();
                 Log.i("Tag", "test firstnameArray" + recupFirstName);
-
                 String birthdayPlaceArray = binding.birthdayPlaceArray.getText().toString ();
                 Log.i("Tag", "test firstnameArray" + birthdayPlaceArray);
 
+                String recupBirthday = binding.birthdaytext.getText().toString ();
+                Log.i("Tag", "test recupBirthday" + birthdayPlaceArray);
+
+
                 // calling method to add data to Firebase Firestore.
-                addDataToFirestore(recupLastName, recupFirstName, birthdayPlaceArray,birthdayPlaceArray);
+                //addDataToFirestore(recupLastName, recupFirstName, birthdayPlaceArray,birthdayPlaceArray);
+
+                userManager.createUser(new User(recupLastName, recupFirstName, recupBirthday,birthdayPlaceArray));
 
                 Toast.makeText(getActivity().getApplicationContext(),
                         recupLastName+ " "+ recupFirstName+ " "+birthdayPlaceArray+ " " +"has been saved successfully!", Toast.LENGTH_SHORT ).show();
@@ -263,7 +272,7 @@ public class FirstFragment extends Fragment {
 
     /**************************/
 
-    /*Méthode pour afficher le bouton de saisi de numéro*/
+    /*Méthode pour afficher le bouton de saisie de numéro*/
     public void afficherBoutonNumber(View view){
 
     }
