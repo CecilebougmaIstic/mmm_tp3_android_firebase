@@ -73,29 +73,30 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.802" />
+        app:layout_constraintVertical_bias="0.717" />
+
 
     <Spinner
-            android:id="@+id/spinnerDepartement"
+        android:id="@+id/spinnerDepartement"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toTopOf="@id/button_first"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthdayPlaceArray" />
-
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toTopOf="@id/button_first"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birthdayPlaceArray" />
 
     <Button
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="96dp"
         android:text="@string/next"
         android:textColor="#CDDC39"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -8,6 +8,9 @@ public class User {
     protected String birthday;
     protected String birthdayPlaceArray;
 
+    public User() {
+    }
+
     public User(String firstName, String lastName, String birthday, String birthdayPlaceArray) {
         this.firstName = firstName;
         this.lastName = lastName;

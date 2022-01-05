@@ -1,8 +1,7 @@
 package fr.istic.mmm_tp3_android_firebase.manager;
-import android.content.Context;
-import android.util.Log;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.Query;
 
 import fr.istic.mmm_tp3_android_firebase.User;
 import fr.istic.mmm_tp3_android_firebase.repository.UserRepository;
@@ -41,8 +40,6 @@ public class UserManager {
         return userRepository.getUserData(firstName).continueWith(task -> task.getResult().toObject(User.class)) ;
     }
 
-
-
     public Task<Void> deleteUser(User user){
         return userRepository.deleteUser1(user);
     }
@@ -51,4 +48,8 @@ public class UserManager {
         return userRepository.updateUser(user);
     }
 
+    /*Methode for the adaptater of recyclerView*/
+    public Query getAllUsersForRecyclerView(){
+        return userRepository.getAllUsersForRecyclerView();
+    }
 }

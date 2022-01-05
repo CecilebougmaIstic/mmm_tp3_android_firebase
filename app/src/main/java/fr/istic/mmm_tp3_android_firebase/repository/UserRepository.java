@@ -53,38 +53,7 @@ public class UserRepository {
         return FirebaseFirestore.getInstance().collection(COLLECTION_NAME);
     }
 
-/*
-    // Create User in Firestore
-    public void createUser1() {
-        FirebaseUser user = getCurrentUser();
-        if(user != null){
-            String urlPicture = (user.getPhotoUrl() != null) ? user.getPhotoUrl().toString() : null;
-            String username = user.getDisplayName();
-            String uid = user.getUid();
 
-            User userToCreate = new User(uid, username, urlPicture);
-
-            Task<DocumentSnapshot> userData = getUserData();
-            // If the user already exist in Firestore, we get his data (isMentor)
-            userData.addOnSuccessListener(documentSnapshot -> {
-                if (documentSnapshot.contains(IS_MENTOR_FIELD)){
-                    userToCreate.setIsMentor((Boolean) documentSnapshot.get(IS_MENTOR_FIELD));
-                }
-                this.getUsersCollection().document(uid).set(userToCreate);
-            });
-        }
-    }
-
-    // Get User Data from Firestore
-    public Task<DocumentSnapshot> getUserData(){
-        String uid = this.getCurrentUserUID();
-        if(uid != null){
-            return this.getUsersCollection().document(uid).get();
-        }else{
-            return null;
-        }
-    }
-*/
 
     public void createUser(User user){
         // creating a collection reference
@@ -185,7 +154,11 @@ public  Task<Void>  updateUser(User user) {
 
     }
 
-
+    public Query getAllUsersForRecyclerView(){
+        return this.getUsersCollection()
+                .orderBy("firstName")
+                .limit(50);
+    }
 
 
 }
