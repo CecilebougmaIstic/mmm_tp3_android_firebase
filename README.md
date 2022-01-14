@@ -33,6 +33,9 @@ url:https://console.firebase.google.com/project/mmm-tp3-android-firebase
 
 2. Modifiez votre application du TP2 de façon à permettre l’ajout d’un client non plus dans une BD
    locale via ROOM mais via un appel à l’API de Firebase.
-Pour enregistrer     
+
+Le model de la classe user:
+![img_1.png](img_1.png)
+
 
    
