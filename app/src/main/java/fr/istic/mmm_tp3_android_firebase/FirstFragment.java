@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.*;
 
@@ -160,11 +161,19 @@ public class FirstFragment extends Fragment {
             public void onClick(View view) {
 
 
-
-                String recupLastName = binding.lastNameArray.getText().toString ();
+                EditText lastName=binding.lastNameArray;
+                String recupLastName = lastName.getText().toString ();
                 Log.i("Tag", "test lastNameArray" + recupLastName);
-
-                String  recupFirstName = binding.firstnameArray.getText().toString ();
+                if(TextUtils.isEmpty(recupLastName)) {
+                    lastName.setError("Veuillez saisir un nom de famile");
+                    return;
+                }
+                EditText firstName=binding.firstnameArray;
+                String  recupFirstName = firstName.getText().toString ();
+                if(TextUtils.isEmpty(recupFirstName)) {
+                    firstName.setError("Veuillez saisir un nom de prénom");
+                    return;
+                }
                 Log.i("Tag", "test firstnameArray" + recupFirstName);
 
                 String birthdayPlaceArray = binding.birthdayPlaceArray.getText().toString ();
@@ -311,4 +320,5 @@ public class FirstFragment extends Fragment {
             }
         });
     }
+
 }

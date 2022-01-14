@@ -26,7 +26,7 @@ public class ItemFragment extends Fragment {
 
     private FragmentItemListBinding binding;
     private RecyclerView recyclerView;
-              UserAdaptaterRecyclerView  adapter; // Create Object of the Adapter class
+    public UserAdaptaterRecyclerView  adapter; // Create Object of the Adapter class
     FirebaseFirestore dbToRecyc = FirebaseFirestore.getInstance();
     UserManager userManager=UserManager.getInstance();
     // TODO: Customize parameter argument names
@@ -42,7 +42,6 @@ public class ItemFragment extends Fragment {
 
     protected String mFirstName;
     protected String mLastName;
-   // protected Calendar mBirthday;
     protected String mBirthday;
     protected String mBirthdayPlaceArray;
 
@@ -69,6 +68,7 @@ public class ItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
             mFirstName = getArguments().getString(ARG_PARAM1);
@@ -76,7 +76,7 @@ public class ItemFragment extends Fragment {
             mBirthday = getArguments().getString(ARG_PARAM3);
             mBirthdayPlaceArray = getArguments().getString(ARG_PARAM4);
         }
-
+*/
     }
     @Override
     public View onCreateView(

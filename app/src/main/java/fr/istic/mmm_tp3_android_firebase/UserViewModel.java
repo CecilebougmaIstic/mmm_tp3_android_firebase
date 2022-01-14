@@ -11,46 +11,46 @@ public class UserViewModel extends BaseObservable {
     protected String birthday;
     protected String birthdayPlaceArray;
 
-    @Bindable
+  //  @Bindable
     public String getFirstName() {
         return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-        notifyPropertyChanged(BR.firstName);
+        //notifyPropertyChanged(BR.firstName);
 
     }
 
-    @Bindable
+   // @Bindable
     public String getLastName() {
         return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-        notifyPropertyChanged(BR.lastName);
+      ///  notifyPropertyChanged(BR.lastName);
 
     }
 
-
+  //  @Bindable
     public String getBirthday() {
         return birthday;
     }
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
-        //notifyPropertyChanged(BR.birthday);
+       // notifyPropertyChanged(BR.birthday);
     }
 
-    @Bindable
+  //  @Bindable
     public String getBirthdayPlaceArray() {
         return birthdayPlaceArray;
     }
 
     public void setBirthdayPlaceArray(String birthdayPlace) {
         this.birthdayPlaceArray = birthdayPlace;
-        notifyPropertyChanged(BR.birthdayPlaceArray);
+      //  notifyPropertyChanged(BR.birthdayPlaceArray);
 
     }
 
