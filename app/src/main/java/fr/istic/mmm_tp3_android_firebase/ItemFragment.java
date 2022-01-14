@@ -68,7 +68,7 @@ public class ItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*
+
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
             mFirstName = getArguments().getString(ARG_PARAM1);
@@ -76,7 +76,7 @@ public class ItemFragment extends Fragment {
             mBirthday = getArguments().getString(ARG_PARAM3);
             mBirthdayPlaceArray = getArguments().getString(ARG_PARAM4);
         }
-*/
+
     }
     @Override
     public View onCreateView(

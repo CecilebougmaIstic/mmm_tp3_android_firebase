@@ -33,9 +33,21 @@ url:https://console.firebase.google.com/project/mmm-tp3-android-firebase
 
 2. Modifiez votre application du TP2 de façon à permettre l’ajout d’un client non plus dans une BD
    locale via ROOM mais via un appel à l’API de Firebase.
-
+   #Stockage des données  dans Firestore 
+Pour cette tâche, 2 packages ont été créés. Le package repository et le package manager.
+Dans le package repository, dans la classe UserRepository, des méthodes CRUD ont été implémentées pour persister
+les données dans la base de données Firestore.
+La persistance des données dans la BD s'articule du model User (voir le diagramme de classe de la classe User ci-dessous).
+NB: L'attribut numberPhone n'a pas été sauvé en base de données. 
+   Il est caché par une la propriété gone.
 Le model de la classe user:
 ![img_1.png](img_1.png)
+
+   #RecyclerView
+A partir de l'IHM du Fragment1, on peut accéder à une liste des utilisateurs à partir du bouton
+nommé RECYCLERV. Cette IHM nommée ItemFragment est remplie par des données provenant de la base de données
+() grâce à une méthode de type Query située dans la classe .....
+
 
 
    

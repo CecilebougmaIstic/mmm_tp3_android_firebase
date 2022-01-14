@@ -186,8 +186,14 @@ public class FirstFragment extends Fragment {
                 String birthdayPlaceArray = binding.birthdayPlaceArray.getText().toString ();
                 Log.i("Tag", "test birthdayPlaceArray" + birthdayPlaceArray);
 
-                String recupBirthday = binding.birthdaytext.getText().toString ();
+                /*Recyclerv place for birthday*/
+                EditText birthday=binding.birthdaytext;
+                String recupBirthday = birthday.getText().toString ();
                 Log.i("Tag", "test recupBirthday" + recupBirthday);
+                if(TextUtils.isEmpty(recupBirthday)) {
+                    birthday.setError("Veuillez saisir une date de naisseance");
+                    return;
+                }
 
 
                 // calling method to add data to Firebase Firestore.
