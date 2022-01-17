@@ -27,14 +27,16 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class FirstFragment extends Fragment {
+
     private FragmentFirstBinding binding;
     private Spinner spinner;
     private List<Departement> departementList;
-    // creating a variable
-    // for firebasefirestore.
+    /* creating a variable for firebasefirestore.*/
+
     private FirebaseFirestore db;
     //Creating a variable for UserManager
     UserManager userManager= UserManager.getInstance();
@@ -59,7 +61,6 @@ public class FirstFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     public static FirstFragment newInstance(String firstName, String lastName, String birthday, String birthdayPlaceArray) {
         FirstFragment fragment = new FirstFragment();
         Bundle args = new Bundle();
@@ -73,8 +74,6 @@ public class FirstFragment extends Fragment {
 
 
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,8 +84,6 @@ public class FirstFragment extends Fragment {
             mBirthdayPlaceArray = getArguments().getString(ARG_PARAM4);
         }
     }
-
-
 
     /*****************************/
     @Override
@@ -112,8 +109,6 @@ public class FirstFragment extends Fragment {
 
 
     }
-
-
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

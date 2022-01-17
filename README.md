@@ -47,9 +47,11 @@ Le model de la classe user:
 
    #RecyclerView
 A partir de l'IHM du Fragment1, on peut accéder à une liste des utilisateurs à partir du bouton
-nommé RECYCLERV. Cette IHM nommée ItemFragment est remplie par des données provenant de la base de données
-() grâce à une méthode de type Query située dans la classe .....
+nommé RECYCLERV. Cette IHM nommée ItemFragment est remplie par des données provenant de la base de données nommée mmm-tp3-android-firebase et stockée dans 
+dans Firestore.
+Pour remplir le recyclerView, dans la classe UserManager, la méthode getAllUsersForRecyclerView de type Query, à partir du DAO (classe
+UserRepository), récupère à partir de la base de données, les 50 premiers utilisateurs par la méthode getAllUsersForRecyclerView
+qui retourne également un object User de type Query.
 
+   ![img_2.png](img_2.png)
 
-
-   

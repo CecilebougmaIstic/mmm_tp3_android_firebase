@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.SnapshotParser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import fr.istic.mmm_tp3_android_firebase.databinding.FragmentItemListBinding;
@@ -26,7 +28,7 @@ public class ItemFragment extends Fragment {
 
     private FragmentItemListBinding binding;
     private RecyclerView recyclerView;
-    public UserAdaptaterRecyclerView  adapter; // Create Object of the Adapter class
+    UserAdaptaterRecyclerView  adapter; // Create Object of the Adapter class
     FirebaseFirestore dbToRecyc = FirebaseFirestore.getInstance();
     UserManager userManager=UserManager.getInstance();
     // TODO: Customize parameter argument names
@@ -42,6 +44,7 @@ public class ItemFragment extends Fragment {
 
     protected String mFirstName;
     protected String mLastName;
+    // protected Calendar mBirthday;
     protected String mBirthday;
     protected String mBirthdayPlaceArray;
 
@@ -68,7 +71,6 @@ public class ItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
             mFirstName = getArguments().getString(ARG_PARAM1);
@@ -105,9 +107,28 @@ public class ItemFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         // It is a class provide by the FirebaseUI to make a
         // query in the database to fetch appropriate data
+        /*
         FirestoreRecyclerOptions<User> options
                 = new FirestoreRecyclerOptions.Builder<User>()
                 .setQuery(userManager.getAllUsersForRecyclerView(), User.class)
+                .build();
+*/
+        FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>()
+                .setQuery(userManager.getAllUsersForRecyclerView(), new SnapshotParser<User>() {
+                    @Override
+                    public User parseSnapshot(@NonNull DocumentSnapshot snapshot) {
+                        /*Les champs à récupérer lors de la prise d'un instantané*/
+                        mFirstName = snapshot.getString("firstName");
+                        mLastName = snapshot.getString("lastName");
+                        mBirthday = snapshot.getString("birthday");
+                        mBirthdayPlaceArray=snapshot.getString("birthdayPlaceArray");
+                        Log.i("champ date de naissance","**************" +mBirthday.toString());
+                        Log.i("champ","recupdate");
+                        System.out.println(mBirthday.toString());
+                        User user = new User(mFirstName,mLastName,mBirthday,mBirthdayPlaceArray);
+                        return user;
+                    }
+                })
                 .build();
 
         // Connecting object of required Adapter class to
@@ -115,19 +136,7 @@ public class ItemFragment extends Fragment {
         adapter = new UserAdaptaterRecyclerView(options);
         // Connecting Adapter class with the Recycler view*/
         recyclerView.setAdapter(adapter);
-/*
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-            }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(PlaceholderContent.ITEMS));
-        }
-*/
+
 
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
