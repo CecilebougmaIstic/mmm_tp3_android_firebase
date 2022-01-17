@@ -1,5 +1,13 @@
 # mmm_tp3_android_firebase
-Sujet:
+      Quick Start
+Pré-requis: Avoir une installation androidStudio son ordinateur ainsi qu'un emulateur android(Avd Manager sur Android Studio).
+Les différentes étapes pour run le projet:
+
+1- Le projet est récupérable sur un repository Github via la commande git clone <url http>.
+url http: https://github.com/CecilebougmaIstic/mmm_tp3_android_firebase.git
+2-
+
+      Sujet:
 L’objectif de ce TP est de prendre en main le BaaS (Backend As A Service) Firebase https://
 firebase.google.com afin de stocker, d’accèder à, et synchroniser des données entre plusieurs terminaux
 mobiles sous Android et un service web (cf Firebase Android: https://firebase.google.com/docs/
@@ -18,18 +26,12 @@ Exercice 3.1 (Mise en place de Firebase et synchronisation)
    plusieurs terminaux, eg via plusieurs émulateurs.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-Pré-requis: Installer Android Studio + un emulater android (Avd Manager sur Android Studio).
-
-I- Récupération du projet
-
-Le projet est récupérable sur un repository Github via la commande git clone <url http>. 
-url http: https://github.com/CecilebougmaIstic/mmm_tp3_android_firebase.git
 
 Exercice 3.1 (Mise en place de Firebase et synchronisation)
 1. Créez un projet Firebase
 
 Le projet sur le console Firebase se nomme: mmm-tp3-android-firebase   
-url:https://console.firebase.google.com/project/mmm-tp3-android-firebase
+url:https://console.firebase.gogle.com/project/mmm-tp3-android-firebase
 
 2. Modifiez votre application du TP2 de façon à permettre l’ajout d’un client non plus dans une BD
    locale via ROOM mais via un appel à l’API de Firebase.

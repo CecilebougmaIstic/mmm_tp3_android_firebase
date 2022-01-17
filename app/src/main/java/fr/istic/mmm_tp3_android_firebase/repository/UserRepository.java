@@ -119,7 +119,7 @@ public  Task<Void>  updateUser(User user) {
         //CollectionReference users = db.collection(COLLECTION_NAME);
       //  Query query = users.whereEqualTo(firstName,firstName);
       /*  Task<QuerySnapshot> querySnapshot = query.get();
-        List<QueryDocumentSnapshot> document =querySnapshot.getResult().getDocuments().getDocuments();*/
+        List<QueryDocumentSnapshot> document =querySnapshot.getResult().getDocuments();*/
         /*
         if(firstName != null){
             return this.getUsersCollection().document(firstName).delete().toString();
