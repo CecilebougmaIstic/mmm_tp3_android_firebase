@@ -55,3 +55,7 @@ qui retourne également un object User de type Query.
 
    ![img_2.png](img_2.png)
 
+NB: sur l'IHM, un spinner contenant une pepite liste de département est visible. Choisir un département dans cette
+liste n'est pas enregistré en BD pour le champ birthdayPlaceArray. Cela n'est pas été implémenté pour ce rapport.
+
+![img_3.png](img_3.png)
